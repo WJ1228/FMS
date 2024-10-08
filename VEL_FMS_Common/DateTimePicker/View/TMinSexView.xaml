@@ -1,0 +1,71 @@
+﻿<UserControl
+    x:Class="VEL_FMS_Common.DateTimePicker.View.TMinSexView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:VEL_FMS_Common.DateTimePicker.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="clr-namespace:VEL_FMS_Common.DateTimePicker.View"
+    d:DesignHeight="180"
+    d:DesignWidth="240"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+    <Border BorderBrush="#FF88C1F2" BorderThickness="2">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#092566">
+                <TextBlock
+                    x:Name="textBlockTitle"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="12"
+                    Foreground="White"
+                    Text="分    钟" />
+
+                <Button
+                    Height="24"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="iBtnCloseView_Click"
+                    Content="X"
+                    Foreground="White"
+                    Style="{StaticResource MaterialDesignFlatButton}" />
+
+            </Grid>
+
+            <DataGrid
+                Name="dgMinSex"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                AlternationCount="1"
+                AutoGenerateColumns="True"
+                Background="White"
+                BorderBrush="White"
+                CanUserAddRows="False"
+                ColumnWidth="50"
+                FontSize="11"
+                HeadersVisibility="Row"
+                HorizontalGridLinesBrush="#d2d2d2"
+                IsReadOnly="True"
+                RowHeaderWidth="0"
+                RowHeight="28"
+                SelectedCellsChanged="dgMinSex_SelectedCellsChanged"
+                SelectionMode="Single"
+                SelectionUnit="Cell"
+                VerticalGridLinesBrush="#d2d2d2">
+                />
+            </DataGrid>
+
+
+
+
+        </Grid>
+
+    </Border>
+</UserControl>
