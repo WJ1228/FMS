@@ -1,0 +1,89 @@
+﻿<UserControl
+    x:Class="VEL_FMS_Common.DateTimePicker.View.DateTimePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:VEL_FMS_Common.DateTimePicker.View"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="clr-namespace:VEL_FMS_Common.DateTimePicker.View"
+    x:Name="mydp"
+    d:DesignHeight="36"
+    d:DesignWidth="260"
+    Loaded="UserControl_Loaded"
+    mc:Ignorable="d">
+    <Grid>
+        <Border
+            Name="border1"
+            BorderBrush="{Binding ElementName=mydp, Path=BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Name="textBlock1"
+                    Grid.Column="0"
+                    Height="36"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontFamily="{Binding ElementName=mydp, Path=FontFamily}"
+                    FontSize="16"
+                    Foreground="{Binding ElementName=mydp, Path=Foreground}"
+                    IsReadOnly="True"
+                    Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type my:DateTimePicker}}, Path=DateTimeStr}"
+                    TextAlignment="Center"
+                    TextChanged="TimeTextChanged_Click" />
+                <Button
+                    x:Name="iconButton1"
+                    Grid.Column="1"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="iconButton1_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            FontFamily="/#iconfont"
+                            FontSize="20"
+                            Foreground="#092566"
+                            Text="&#xe6d9;" />
+                    </StackPanel>
+
+                </Button>
+
+
+
+            </Grid>
+        </Border>
+
+
+
+
+
+
+        <Grid
+            x:Name="girdChioce"
+            Margin="0,50,0,40"
+            VerticalAlignment="Top"
+            Background="Transparent">
+            <Popup
+                x:Name="popChioce"
+                AllowsTransparency="True"
+                IsOpen="False"
+                Placement="Top"
+                PlacementTarget="{Binding ElementName=girdChioce}"
+                PopupAnimation="Fade"
+                StaysOpen="False" />
+        </Grid>
+        <Button
+            x:Name="TimeChangeBtn"
+            Command="{Binding Path=TimeChangeCommand, ElementName=mydp}"
+            Visibility="Collapsed" />
+    </Grid>
+</UserControl>
